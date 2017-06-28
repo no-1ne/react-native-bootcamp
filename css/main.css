@@ -13,7 +13,9 @@ pre, code, pre code {
 .highlight {
     background-color: #f9f9f9;
 }
-
+.highlighter-rouge {
+    background-color: gainsboro;
+}
 pre {
     font-size: 1em;
 }
@@ -91,4 +93,8 @@ table {
 td, th {
   padding: .25rem .5rem;
   border: 1px solid #e5e5e5;
+}
+.nav>.active>a {
+    text-decoration: none;
+    background-color: #eee;
 }

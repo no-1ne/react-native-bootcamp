@@ -1,22 +1,22 @@
 ---
 layout: default
-title: "Jekyll Docs Template"
+title: "React Native Bootcamp"
 ---
 
-<p class="lead">Tired of long and unmanageable single-page READMEs deployed as your project's documentation? This minimal <a href="http://jekyllrb.com/">Jekyll</a> project template is specifically intended for simple static documentation sites deployable on GitHub Pages.</p>
+<p class="lead">If You followed part 1 of Reactjs bootcamp properly and my fellow mentor did a good job(I know he does), you should have a good understanding of React Components, states, props etc. If you do, you are good to go.</p>
 
-The template follows a very simple convention of defining categories that correspond to sections in the navigation. Here are the default ones (they are listed in the `_config.yml`):
+<p class="lead"> For the sake of ease we we'll be sticking with <a href="http://codenvy.io/dashboard/">codenvy</a> for React Native App Development as well. Firebase would be our backend as before, but since we are developing mobile apps and not web apps that too on a cloud workspace it ain't gonna be easy. So put your persistence boots on and get ready to create your first React Native Mobile App.</p>  
 
-- `doc` - Documentation
-- `ref` - Reference
-- `tut` - Tutorial
-- `dev` - Developers
-- `post` - Posts
+What we are gonna build?
+---------
+<p class="lead">We'll be creating a Travel Log App. The Completed Travel Log App will have following features </p> 
+* You can click on a button to take photo.
+* You can upload the photo to firebase along with your Geolocation and a Title.
+* You can see all the Travel Moments as a list.
+* You can click on the list to see the details of the moment with a map.
+* You can login with Facebook.
 
-Start by [creating a new post](http://jekyllrb.com/docs/posts/) one of the categories listed in `_config.yml`. It will appear in the navigation on the left once recompiled. Or use the supplied script to make creating pages easier:
-
-```bash
-ruby bin/jekyll-page "Some Page Title" ref
-```
-
-Read more [Usage]({{ site.baseurl }}{% post_url 2013-06-06-usage %}) page for more details or view the project [on GitHub](https://github.com/bruth/jekyll-docs-template/)
+How to Read
+---------
+*  
+So Let's [Get Started](part1/getting-started.html)!

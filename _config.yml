@@ -1,6 +1,6 @@
 # Site title and subtitle. This is used in _includes/header.html
-title: 'jekyll-docs-template'
-subtitle: 'Painless documentation for your projects'
+title: 'React Native Bootcamp'
+subtitle: ''
 
 # if you wish to integrate disqus on pages set your shortname here
 disqus_shortname: ''
@@ -15,15 +15,20 @@ google_analytics_id: ''
 navigation: 2
 
 # URL to source code, used in _includes/footer.html
-codeurl: 'https://github.com/bruth/jekyll-docs-template'
+codeurl: 'http://startupgurukul.in/'
 
 # Default categories (in order) to appear in the navigation
 sections: [
-    ['doc', 'Documentation'],
-    ['tut', 'Tutorial'],
-    ['ref', 'Reference'],
-    ['dev', 'Developers'],
-    ['post', 'Posts']
+    ['part1', 'Getting Started'],
+    ['part2', 'Home Screen'],
+    ['part3', 'React Navigation'],
+    ['part4', 'Detail Screen'],
+    ['part5', 'Firebase'],
+    ['part6', 'React Native Maps'],
+    ['part7', 'React Native Camera'],
+    ['part8', 'React Native Blob and Firebase Upload'],
+    ['part9', 'Authentication'],
+    ['part10', 'Wrap Up'],
 ]
 
 # Keep as an empty string if served up at the root. If served up at a specific
