@@ -13,11 +13,11 @@ We just created a Single Main Screen with ListItems from our dummy_data, but mos
 ### _Types_
 React Navigation gives three Navigator Components which you can again mix and match.
 * [StackNavigator](https://reactnavigation.org/docs/navigators/stack#StackNavigator)  
-	Let's us change Screens by stacking on top of another
+	Let's us change Screens by stacking one top of another
 * [TabNavigator](https://reactnavigation.org/docs/navigators/tab#TabNavigator)  
 	Let's us change Screens with a tabs at the bottom
 * [DrawerNavigator](https://reactnavigation.org/docs/navigators/drawer#DrawerNavigator)  
-	Let's Draw a Screen from the left
+	Let's us set up a screen with a drawer navigation
 
 ### _Stacknavigator_
 For this Project we'll be sticking to Stacknavigator. here's an example of Stacknavigator
@@ -125,7 +125,7 @@ const TravelLogStackNav = StackNavigator({
   }
 });
 		```
-		here we are initializing a Stacknavigator with the screen Main screen set to `MainScreen` component, the set argument is an Object that tell that we don't want a Title Bar for all of our Screens. but wait, we didn't import the MainScreen Component after moving to the new file. So let's import MainScreen Component with  
+		here we are initializing a Stacknavigator with the screen Main screen set to `MainScreen` component, the second argument is an Object that tell that we don't want a Title Bar for all of our Screens. but wait, we didn't import the MainScreen Component after moving to the new file. So let's import MainScreen Component with  
 			`import MainScreen from './components/MainScreen.js';` 
 	- make TravelLog Class return `TravelLogStackNav` component  
 	```

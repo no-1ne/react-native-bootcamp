@@ -20,7 +20,7 @@ codeurl: 'http://startupgurukul.in/'
 # Default categories (in order) to appear in the navigation
 sections: [
     ['part1', 'Getting Started'],
-    ['part2', 'Home Screen'],
+    ['part2', 'Main Screen'],
     ['part3', 'React Navigation'],
     ['part4', 'Detail Screen'],
     ['part5', 'Firebase'],

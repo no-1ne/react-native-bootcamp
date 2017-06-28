@@ -1,6 +1,6 @@
 ---
 layout: page
-title:  Home Screen
+title:  Main Screen
 category: part2
 ---
 
@@ -13,7 +13,8 @@ to install `react-native-elements` you must first install and link the peer depe
 * `npm i react-native-vector-icons --save && react-native link react-native-vector-icons`
 * `npm i react-native-elements --save`  
 
-## __Main Screen__
+## _Main Screen_
+![ScrollView Main Screen v1]({{ site.url }}{{site.baseurl}}/assets/main-screen.png){: .center-image }  
 If you look at the above screenshot you'll see that our main screen contains a Image with Text, a list and a floating button. let's split it into react-native-elements components and start implementing our Main Screen. If you go to the Documentation of [React Native Elements](https://react-native-training.github.io/react-native-elements/#components-included) you'll see that our Main Screen consists of a [Tile](https://react-native-training.github.io/react-native-elements/API/tile/) Component, a [List](https://react-native-training.github.io/react-native-elements/API/lists/) Component and a [Icon Button](https://react-native-training.github.io/react-native-elements/API/icons/) Component. Let's import the required Components and add them to our Main Screen UI.
  
 ```
@@ -156,7 +157,7 @@ Now you can swap all the contents of `ScrollView` with the dummy data using `map
       { dummy_data.map(this.renderListItems) }
         </ScrollView>
 ```  
-![ScrollView Main Screen v1]({{ site.url }}{{site.baseurl}}/assets/main-screen-1.png)  
+![ScrollView Main Screen v1]({{ site.url }}{{site.baseurl}}/assets/main-screen-1.png){: .center-image }  
 
 If everything went well your app should look like this, But wait in our first screen shot there was a Tile Component at the top, right? let's refactor our `renderListItems` method to return the same.
 what we are gonna do is return a Tile Component if the index of the object is 0(zero) and return a ListItem Component otherwise. So our `renderListItems` should look like
@@ -182,7 +183,6 @@ renderListItems(moment_obj,index) {
 	  );
 }
 ```
-Now it looks exactly like our first screen shot, go on and add few more objects to you `dummy_data` array and then go on and reload the app you'll see that you can scroll down see the remaining listitems.  
+Now it looks exactly like our first screen shot, add few more objects to you `dummy_data` array and then go on and reload the app you'll see that you can scroll down see the remaining listitems.  
 Congratulations, with This you have successfully implemented our Main Screen with the dummy data.
 Moving on to [Part III]({{ site.url }}{{site.baseurl}}/part3/react-navigation.html)...
-<!-- <center><strong><code>npm install --save react-native-fetch-blob</code></strong></center> -->
