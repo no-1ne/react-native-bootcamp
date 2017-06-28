@@ -16,7 +16,4 @@ What we are gonna build?
 * You can click on the list to see the details of the moment with a map.
 * You can login with Facebook.
 
-How to Read
----------
-*  
 So Let's [Get Started](part1/getting-started.html)!
