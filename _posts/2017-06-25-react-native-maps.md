@@ -12,12 +12,12 @@ In DetailScreen we have a Map View in which we show the location of the moment. 
 * `react-native link react-native-maps`  
 
 ### _Google Maps API Key_
-To Use Google Maps in your App you must have Google Maps API key, Go get the API key follow these steps:
+To Use Google Maps in your App you must have Google Maps API key, Go get the API key by following these steps:
 * You must use [Google Developer Console](https://console.developers.google.com/) to get the API Key
 * Create a new Project by going to [create project](https://console.developers.google.com/projectcreate)
 	- Give your project a name
 	- accept the terms 
-	_ Click on "Create"
+	- Click on "Create"
 * Click on Hamburger Icon from top left and select [API Manager](https://console.developers.google.com/apis)
 * Select [Google Maps Android API](https://console.developers.google.com/apis/api/maps_android_backend/overview) from the API List and click "ENABLE".(<span style="color:red">!Important</span>)
 * In Left Nav. Select "Credentials"
@@ -51,7 +51,7 @@ in [Detail Screen]({{ site.url }}{{site.baseurl}}/assets/detail-screen.png) we a
 			longitudeDelta: 0.0421," }}}}
 		>
 			<MapView.Marker 
-				coordinate={{latitude: details.location.lat,longitude: details.location.lon}}
+				coordinate={{ "{{latitude: details.location.lat,longitude: details.location.lon" }}}}
 			/>
 		</MapView>
 	</View>
@@ -81,4 +81,4 @@ const styles = StyleSheet.create({
 	```  
 __Note:__ Our emulator doesn't support Google Play services so we won't be able to see the map(yet)s. Don't worry we'll see the map soon, just make sure you followed all the above steps properly and you get `won't run without google play services which are not supported by your device` in you `DisplayScreen`.
 
-With this we knocked out the map out of our map. Navigating to [Part VII]({{ site.url }}{{site.baseurl}}/part7/react-native-camera-and-blob.html)...
+With this we knocked out map out of our map. Navigating to [Part VII]({{ site.url }}{{site.baseurl}}/part7/react-native-camera-and-blob.html)...
