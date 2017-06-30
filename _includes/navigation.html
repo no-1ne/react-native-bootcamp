@@ -11,6 +11,8 @@
             <li class="{% if page.url == tpage.url %}active{% endif %}" data-order="{{ tpage.order }}"><a href="{{ site.baseurl }}{{ tpage.url }}">{{ label }}</a></li>
         {% endfor %}
     {% endfor %}
+    <li class="divider"></li>
+    <li><a href="{{ site.baseurl }}/debugging.html">Debugging</a></li>
 <!-- List additional links. It is recommended to add a divider
     e.g. <li class="divider"></li> first to break up the content. -->
 </ul>

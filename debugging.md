@@ -1,0 +1,37 @@
+---
+layout: default
+title: "Debugging"
+---
+## __Debugging__
+
+For most parts of it React Native error aren't descriptive at all, so you have to try and test a few techniques to get it to work. here are a few thing's you can try
+
+### _Console Log_  
+- We can use console.log for debugging, remember we created a command with the name `adb-logcat:run` try running it after starting the emulator. And you'll see that all the logs from our Emulator are getting logged here. There are three types of logs 
+	- console.log
+	- console.error
+	- console.warn  
+* console.error will show you a red screen on the emulator when called
+* console.warn will show you warning at the bottom of the screen
+* console.log won't show up on the emulator but would be logged in the `adb logcat`  
+
+
+Sometimes when you are testing the app you might get a red screen with an error, and most of the times these errors are vague. So here are a few things you can do to make it work.
+### _Stack trace_  
+You can sometimes find where the error is just by looking at the error screen, in that case go back to your code and make the required changes.
+	- Even if at the top you don't see an error in a file that's not familiar go down to see if you can find a file that you know of.
+### _./gradlew clean_  
+This command cleans your android project. run it after going into your android. here are the steps,
+	- from the TravelLog directory run `cd android`
+	- run `./gradlew clean`
+	- run `react-native run-android` from `TravelLog` directory 
+
+
+### _Re-install_
+As a last measure you can
+- uninstall the app from the emulator
+- stop packager server 
+- restart the packager server
+- run your app with `react-native run-android` 
+
+If nothing of the above May God save you😜, Just kidding You can ask any of the mentors to help you debug anytime. Just make sure you first follow the above steps to save time.
