@@ -5,7 +5,7 @@ category: part4
 ---
 
 Our Main Screen shows a List of Moments, Let's add feature when the user click on a Moment He's taken to a Detail Screen where it shows the Image, Title and A Map with the Location of the Moment. Our Completed Detail Screen would look like the following Screenshot.
-![Detail Screen]({{ site.url }}{{site.baseurl}}/assets/detail-screen.png) 
+![Detail Screen]({{ site.url }}{{site.baseurl}}/assets/detail-screen.png){: .center-image } 
 ### Detail Screen
 Let's now implement the Detail Screen,
 * create a new file with name `DetailScreen.js`
@@ -40,11 +40,12 @@ const TravelLogStackNav = StackNavigator({
 		if you wanna see if your Details Screen is working properly, just swap the order of the screens in the Stacknavigator.  
 
 ### _Navigate and Props_
-All is well and good but how do we actually navigate from Main Screen to Detail Screen. React navigation gives a cool Prop named navigate, which allows to navigate from one screen to another. Since you've already taken ReactJS bootcamp, you should have a pretty good understanding of [Props](https://facebook.github.io/react-native/docs/props.html)(If you don't? "abort! abort!"). Props are the way different components talk to each other.
+All is well and good but how do we actually navigate from Main Screen to Detail Screen. React navigation gives a cool Prop named `navigate`, which allows to navigate from one screen to another. Since you've already taken ReactJS bootcamp, you should have a pretty good understanding of [Props](https://facebook.github.io/react-native/docs/props.html)(If you don't? "abort! abort!"). Props are the way different components talk to each other.
 So in Main Screen we have a list of moments which when clicked should navigate to detail screen. Let's implement that,
 [from react-native-elements documentation] we can pass a prop `onPress` to a ListItem which should be set to a function. So let's refactor our `renderListItems` return a listitems with `onPress` prop. after adding `onPress` prop our `renderListItems` should look like...
 ```
 renderListItems(moment_obj,index) {
+  const {navigate} = this.props.navigation;
   if(index == 0)
 	  return (
 	    <Tile
@@ -53,7 +54,7 @@ renderListItems(moment_obj,index) {
 	      featured
 	      key={index}
 	      onPress={() =>{
-            this.props.navigation.navigate('Detail');
+            navigate('Detail');
           }
           }
 	    />
@@ -66,7 +67,7 @@ renderListItems(moment_obj,index) {
 	      key={index}
 	      title={moment_obj.title}
 	      onPress={() =>{
-            this.props.navigation.navigate('Detail');
+            navigate('Detail');
           }
           }
 	    />

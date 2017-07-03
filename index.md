@@ -16,4 +16,9 @@ What we are gonna build?
 * You can click on the list to see the details of the moment with a map.
 * You can login with Facebook.
 
+How to Read
+---------
+* Important steps are marked as "(<span style="color:red">!Important</span>)"
+* Whenever you read a word `moment` it refers to single item with an image, title, and a geo location. 
+* Code snippets are highlighted with gray background.
 So Let's [Get Started](part1/getting-started.html)!

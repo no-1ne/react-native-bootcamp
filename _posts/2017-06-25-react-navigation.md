@@ -20,7 +20,7 @@ React Navigation gives three Navigator Components which you can again mix and ma
 	Let's us set up a screen with a drawer navigation
 
 ### _Stacknavigator_
-For this Project we'll be sticking to Stacknavigator. here's an example of Stacknavigator
+For this Project we'll be sticking to Stacknavigator. here's an example of Stacknavigator  
 ```
 import React from 'react';
 import {
@@ -43,13 +43,17 @@ const SimpleApp = StackNavigator({
 });
 
 AppRegistry.registerComponent('SimpleApp', () => SimpleApp);
-```
+```  
+__note :__ don't copy this code it's just an example
+{: style="color:gray; font-size: 80%; text-align: center;"}
+
+
 All it does is create a StackNavigator with a single screen called Home and assign it to the HomeScreen Component. Now Let's Change our code to make use of awesome React Navigation, install React Navigation if you haven't already and move on..
 
 
 ### _Refractor_  
-* We'll first create a directory name `components` to contain all our Screens
-* Add a File with name `MainScreen.js` into the components directory
+* We'll first create a directory with name `components` to contain all our Screens
+* Add a File with name `MainScreen.js` in the components directory
 * Move All the Main Screen specific code from `index.android.js` to our `MainScreen.js` file, Now your MainScreen should look like
 	```
 import React, { Component } from 'react';
@@ -110,9 +114,9 @@ const styles = StyleSheet.create({
     right: 10,
   },
 });
-  const dummy_data = [{dummy_data}];
+  const dummy_data = [your dummy data];
 	```
-* Now Our TraveLog Class in `index.android.js` should contain a empty render method. Let's make this render method return a Stacknavigator.
+* Now Our TraveLog Class in `index.android.js` should contain a empty render method. Let's make this render method return a Stacknavigator component.
 	- first of all import Stacknavigator from `react-navigation`  
 		`import { StackNavigator } from 'react-navigation';`
 	- define a constant `TravelogStackNav` initialized to Stacknavigator

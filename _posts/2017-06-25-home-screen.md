@@ -58,7 +58,8 @@ const styles = StyleSheet.create({
 });
 ```
 now you'll see that all the components nicely fit the screen and looks almost like our screen shot. the only missing piece is the floating button at the bottom right of the screen let's add it.
-refactor our main view to contain a [ScrollView](https://facebook.github.io/react-native/docs/scrollview.html) and another View for the Button. ScrollView unlike [View](https://facebook.github.io/react-native/docs/view.html) make the contents of the View scrollable.
+refactor our main view to contain a [ScrollView](https://facebook.github.io/react-native/docs/scrollview.html) and another View for the Button. ScrollView unlike [View](https://facebook.github.io/react-native/docs/view.html) make the contents of the View scrollable. ScrollView is part of `react-native` so you'd import ScrollView as follows
+``
 ```
   <View style={styles.container}>
       <ScrollView>
@@ -67,9 +68,7 @@ refactor our main view to contain a [ScrollView](https://facebook.github.io/reac
       }
       </ScrollView>
     <View style={styles.float}>
-      <Icon raised name='add' color='#f50' onPress={() =>
-        navigate('Camera', { name: 'Jane' })
-      } />
+      <Icon raised name='add' color='#f50' />
     </View>
   </View>
 

@@ -25,7 +25,7 @@ With React Native Fetch Blob installed we can now start working on our Form Scre
     return (
       <View style={styles.container}>
         <FormLabel labelStyle={styles.labelFont}>Moment Title</FormLabel>
-        <FormInput onEndEditing={(data)=>console.log(data)} />
+        <FormInput onChangeText={(data)=>console.log(data)} />
       </View>
     );
 ```
@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
     return (
       <View style={styles.container}>
         <FormLabel labelStyle={styles.labelFont}>Moment Title</FormLabel>
-        <FormInput onEndEditing={(data)=>this.setState({ title : data })} onChangeText={(data)=>console.log(data)}/>
+        <FormInput onChangeText={(data)=>this.setState({title : data})} />
         <FormLabel labelStyle={styles.labelFont} >Moment Image</FormLabel>
           <Image
             resizeMode='contain'
@@ -118,10 +118,9 @@ window.Blob = Blob;
 * Also we need to get the Geo Location for the maps, in react-native getting the location is straight forward. all we have to do is use `navigator.geolocation` same as we do in the web., let's get the current location of the user in the `componentDidMount()` of `FormScreen.js`. So now should have a `componentDidMount()` that looks something like this..
 ```
 componentDidMount(){
-    navigator.geolocation.getCurrentPosition(
+      navigator.geolocation.getCurrentPosition(
          (position) => {
-            const ourPosition = JSON.stringify(position);
-            this.setState({ ourPosition });
+            this.setState({ lat : position.coords.latitude, lon : position.coords.longitude });
          },
          (error) => alert(error.message),
          { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 }
@@ -134,15 +133,15 @@ componentDidMount(){
 		this.uploadImage(this.props.navigation.state.params.moment_details.moment_time,this.props.navigation.state.params.moment_details.image_path);
 		const moment_details = this.props.navigation.state.params.moment_details;
 		this.databaseRef = firebase.database();
-		var put_object = {};
-		put_object[moment_details.moment_time] = {
+		var put_object = {
+    time : moment_details.moment_time,
 		title : this.state.title,
 		image : "/images/" + moment_details.moment_time + ".jpg",
 		location : {
-			lat : 17.686816,
-  			lon : 83.218482
+			lat : this.state.lat,
+  			lon : this.state.lon
 		}
-		}
+		};
 		this.databaseRef.update(put_object).then(alert("success")).catch(alert(fail));
 	}
 	```

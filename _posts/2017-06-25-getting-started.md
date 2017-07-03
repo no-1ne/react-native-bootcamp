@@ -34,7 +34,13 @@ Add another command by clicking "+" icon beside RUN
   * double click on `custom`, this will give you a new command
   * rename it to `packager-server:run`
   * add command `cd /projects/TravelLog/ && npm start`
-  * save (don't run yet) 
+  * save (don't run yet)  
+
+Add another command by clicking "+" icon beside RUN  
+  * double click on `custom`, this will give you a new command
+  * rename it to `adb-logcat:run`
+  * add command `adb logcat`
+  * save (RUN it after the emulator is running) 
 
 ### _Android Emulator_
 In the Last Section when you save and run it gives you a link, click on it and it will bring you to a blank gray screen. Right click on it and select __Emulator__. give it some time and *Voila!* you have your very own mobile device to play with and install apps on, BTW it's called an __Emulator__. Now a word of caution, this little thing is very delicate and you must handle it with care 
@@ -101,4 +107,4 @@ Congratulations, now you have successfully created and run a basic React Native 
 - Codenvy shuts down your workspace after every 10 minutes of inactivity, and in this bootcamp it's very important to respect that point. Android emulator take time to load!
 - if you get a gray screen in the novnc link, just right click and select __Emulator__.
 - Emulator must be running to run `react-native run-android` otherwise It'll give a "no android devices running" error.
-- Apparently Codenvy deletes the extra Commands we crate when we shut down the Workspace, so you must redo Second Step of [Configure Commands](#configure-commands) every time you restart the workspace.
+- If you get stuck somewhere just checkout the [debugging] Section
