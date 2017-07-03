@@ -12,8 +12,11 @@ The Main functionality of this App is being able to Capture a moment, adding a T
 Remember We edited AndroidManifest.xml to add a Google API. In this Part also we are gonna edit the AndroidManifest.xml(/android/app/src/main/AndroidManifest.xml) again but this time we'll be adding permissions instead of meta data, these permissions would let us Read and Write From our Local Storage. Since our Camera Component would be Saving file to local storage these permissions are necessary, add the following lines of code along with other permissions
 ```
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> 
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> 
 ```  
+Hey! I understand we need read and write for image storage, what is `ACCESS_FINE_LOCATION` permission?  
+You got me again smarty pants😋 , that is actually to get the location of the user in the next part, I added it here itself so that you don't have to edit this file again.🙂 
 also add `android:largeHeap="true"` just after `android:allowBackup="true"`
 
 Now 
@@ -91,7 +94,7 @@ const TravelLogStackNav = StackNavigator({
 ### _Icon Button to Camera Screen_
 Do you remember the Icon button we added in our Main Screen in [Part II]({{ site.url }}{{site.baseurl}}/part2/home-screen.html#main-screen), If you try to click on it you'll notice it does nothing. let's change that  
  * add a `onPress` prop to the Icon so that it navigates to Camera Screen.
-	`onPress={() => navigate('Camera')}`  
+	`onPress={() =>this.props.navigation.navigate('Camera')}`  
 Now when you click on it you'll see that it takes us to the Camera Screen, Perfect!  
 
 ### _Codenvy Emulator_
