@@ -18,7 +18,8 @@ What we are gonna build?
 
 How to Read
 ---------
-* Important steps are marked as "(<span style="color:red">!Important</span>)"
+* Important steps are marked as => "<span style="color:red">!Important</span>"
+* code that you must change to your own => "<span style="color:orange">your_api_key</span>"
+* Code snippets are highlighted with gray background. => "<span style="background:gainsboro">code_snippet_or_important_keyword</span>"
 * Whenever you read a word `moment` it refers to single item with an image, title, and a geo location. 
-* Code snippets are highlighted with gray background.
 So Let's [Get Started](part1/getting-started.html)!

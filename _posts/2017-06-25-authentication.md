@@ -31,9 +31,9 @@ To implement Facebook login we have to create a Facebook App, these are the step
 * Make app public
 	- In the Left Navigation Click `App Review`
 	- Now there will be an option saying `Make Travel Log public?`(if you named your app Travel Log)  
-  		* switch the radio button to yes
-  		* Choose a category in our case Travel
-  		* Hit `confirm`
+		* switch the radio button to yes
+		* Choose a category in our case Travel
+		* Hit `confirm`  
 Don't forget to make app public (<span style="color:red">!Important</span>) 
 
 
@@ -120,8 +120,8 @@ __note : don't ask me why we are implementing these steps, because that's how th
 Notice that `@string/facebook_app_id` in the above meta tag, we actually have to put an element in `strings.xml` file with the name `facebook_app_id`.  
 	add these two lines of code to your strings.xml, and change the `[ADD YOUR APP ID]` to your App ID, don't leave any space in between in the second tag.
 	<pre>
-	&lt;string name="facebook_app_id"&gt;<span style="color:red">[ADD YOUR APP ID]</span>&lt;/string&gt;
-	&lt;string name="fb_login_protocol_scheme"&gt;fb<span style="color:red">[ADD YOUR APP ID]</span>&lt;/string&gt;
+	&lt;string name="facebook_app_id"&gt;<span style="color:orange">[ADD YOUR APP ID]</span>&lt;/string&gt;
+	&lt;string name="fb_login_protocol_scheme"&gt;fb<span style="color:orange">[ADD YOUR APP ID]</span>&lt;/string&gt;
 	</pre>  
 * build.gradle
 	- There are two `build.gradle` files that we have to update in order to make it work, one is in the 
@@ -133,7 +133,7 @@ Notice that `@string/facebook_app_id` in the above meta tag, we actually have to
 And with that you are done integrating Fbsdk in your project. Let's add a login Screen and change Form Screen so that it makes the user Login before adding to the database.  
 
 ### _Login Screen_  
-Let's create a basic class that extends a `Component`, name it LoginScreen and add it to the file `LoginScreen.js`, Don't forget to have a empty render command in your Class(since you have created many component by now, you must have pretty good idea on how to create a basic Component). In our login Screen we'll just have a button that when clicked logs the user in and takes back to the Form Screen. So let's start building it, the first we have to do is import FBSDK and the two functions from it. here are the commands
+Let's create a basic class that extends a `Component`, name it LoginScreen and add it to the file `LoginScreen.js`, Don't forget to have a empty render command in your Class(since you have created many component by now, you must have pretty good idea on how to create a basic Component). In our login Screen we'll just have a button that when clicked logs the user in and takes back to the Form Screen. So let's start building it, the first thing we have to do is import FBSDK and the two functions from it. here are the commands
 * `import FBSDK from 'react-native-fbsdk';`
 * `import * as firebase from 'firebase';`
 * `const { LoginButton, AccessToken} = FBSDK;` 
@@ -166,7 +166,7 @@ Now add the following code to your render return function,
           onLogoutFinished={() => alert("logout.")}/>
       </View>
 ```  
-Let's break this code into pieces, Ist of all we have a View Component with the `style` prop set to `styles.container`(Don't worry we'll add it). Inside the View we have LoginButton Component which takes two props `onLoginFinished` and `onLogoutFinished` which takes functions and are called when the user Logs in and Logs out(duh!). When the user successfully logs in we are authenticating the user with Firebase using the Token from FBSDK Login. on successful Login we are taking the user back to the Form Screen with `this.props.navigation.goBack();`. Let's define the style that are used by the View component, all this style object does is center the Login button on the screen,  
+Let's break this code into pieces, first of all we have a View Component with the `style` prop set to `styles.container`(Don't worry we'll add it in next step). Inside the View we have LoginButton Component which takes two props `onLoginFinished` and `onLogoutFinished` which takes functions and are called when the user Logs in and Logs out(duh!). When the user successfully logs in we are authenticating the user with Firebase using the Token from FBSDK Login. on successful Login we are taking the user back to the Form Screen with `this.props.navigation.goBack();`. Let's define the style that are used by the View component, all this style object does is center the Login button on the screen,  
 ```
 const styles = StyleSheet.create({
   container: {
@@ -186,7 +186,7 @@ Since now we have added auth. let's change our Form Screen and Main Screen to wr
 * import firebase `import * as firebase from 'firebase';`  
 * In component did mount add the following function which triggers when auth state changes  
 	`firebase.auth().onAuthStateChanged(this.handleAuthChange);`  
-* in the above we firebase auth calls `handleAuthChange` which doesn't exist add the method and also don't forget bind it in the constructor,  
+* in the above code firebase auth calls `handleAuthChange` which doesn't exist add the method and also don't forget to bind it in the constructor,  
 ```
   handleAuthChange(user){
     if (user !== null) {
@@ -197,8 +197,8 @@ Since now we have added auth. let's change our Form Screen and Main Screen to wr
   }
 ```  
 In the following method we check if the user is logged in and than if he is we set the `user_id` state to current user id. otherwise we navigate the use to the Login Screen.  
-* Change the db update inside `addData()` method as follows  
-	`this.databaseRef.child(""+this.state.user_id).update(put_object).then(goBack("Main")).catch((error) => alert(error));`  
+* Change the db update inside `addData()` method as follows, don't blame me if you get `can't find navigate`  
+	`this.databaseRef.child(""+this.state.user_id).update(put_object).then(navigate('Main')).catch((error) => alert(error));`  
 
 #### _Main Screen_
 Let's update our Main Method to get moments of the user,  
@@ -214,12 +214,19 @@ handleAuthChange(user){
       this.listenForItems(this.itemsRef);
     } else {
       this.setState({logged_in : false});
+    Alert.alert(
+      'Alert',
+      'You are not logged in please login to see your moments',
+      [
+        {text: 'Login', onPress: () => this.props.navigation.navigate('Login')},
+      ],
+      { cancelable: true }
+    );
     }
   }
 ```  
-We have moved our database reference call and `listenForItems` call into `handleAuthChange` not let's bind the above method  
+We have moved our database reference call and `listenForItems` call into `handleAuthChange` now let's bind the above method  
 `this.handleAuthChange = this.handleAuthChange.bind(this);`  
-
 Now with that we successfully Authenticated ourselves into the [Wrap Up]({{ site.url }}{{site.baseurl}}/part10/wrap-up.html)...
 
 

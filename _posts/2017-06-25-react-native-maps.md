@@ -30,11 +30,11 @@ For your android app to work, you must add the API key you got from last step to
 To add the API key,  
 * open /android/app/src/main/AndroidManifest.xml  
 * add the follow code to the above file just before closing `</application>` Tag. And replace `your_api_key` with you guessed it right, your API key😜
-	```
-	<meta-data
+	<pre>
+	&lt;meta-data
       android:name="com.google.android.geo.API_KEY"
-      android:value="your_api_key"/>
-	```  
+      android:value="<span style="color:orange">your_api_key</span>"/&gt;
+	</pre>  
 That's it that's all you need to do to use Google Maps API With React Native Maps. In the next Step We will implement the Map View in DetailScreen.
 
 ## _Detail Screen_

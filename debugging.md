@@ -34,4 +34,13 @@ As a last measure you can
 - restart the packager server
 - run your app with `react-native run-android` 
 
+
+### _Some common errors and fixes_  
+here are some common error that you might encounter and how to fix them,
+
+* <span style="color:red">Can't find variable: [yadayada]  <span>  
+
+	This is a common error and usually means that you forgot to import or initialize a function, method or a variable. just go to the line and verify  
+*  
+
 If nothing of the above May God save you😜, Just kidding You can ask any of the mentors to help you debug anytime. Just make sure you first follow the above steps to save time.
