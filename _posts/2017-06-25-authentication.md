@@ -197,8 +197,8 @@ Since now we have added auth. let's change our Form Screen and Main Screen to wr
   }
 ```  
 In the following method we check if the user is logged in and than if he is we set the `user_id` state to current user id. otherwise we navigate the use to the Login Screen.  
-* Change the db update inside `addData()` method as follows, don't blame me if you get `can't find navigate`  
-	`this.databaseRef.child(""+this.state.user_id).update(put_object).then(navigate('Main')).catch((error) => alert(error));`  
+* Change the db update inside `addData()` method as follows, don't blame me if you get `can't find variable goBack` error  
+	`this.databaseRef.child(""+this.state.user_id).update(put_object).then(goBack('Main')).catch((error) => alert(error));`  
 
 #### _Main Screen_
 Let's update our Main Method to get moments of the user,  

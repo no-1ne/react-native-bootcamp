@@ -41,6 +41,14 @@ here are some common error that you might encounter and how to fix them,
 * <span style="color:red">Can't find variable: [yadayada]  <span>  
 
 	This is a common error and usually means that you forgot to import or initialize a function, method or a variable. just go to the line and verify  
-*  
+* <span style="color:red">You have not accepted the license agreements of the following SDK components:  <span>  
+	
+	This another creepy worm that we were prepared for but still slips out of our shoe, so here how to fix this issue.  
+	* copy this line : <code class="highlighter-rouge">android update sdk --no-ui --all --filter "<span style='color:orange'>replace_with_required_sdk_component</span>"</code>
+	* paste it in the codenvy workspace
+	* change the `replace_with_required_sdk_component` to your component that requires license acceptance.
+	* press enter and then enter `y` when it prompts to accepts the license.  
+	You are good to go!
+
 
 If nothing of the above May God save you😜, Just kidding You can ask any of the mentors to help you debug anytime. Just make sure you first follow the above steps to save time.
