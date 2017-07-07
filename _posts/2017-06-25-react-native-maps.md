@@ -7,19 +7,19 @@ order: 0
 ---
 
 ### _Intro_
-In DetailScreen we have a Map View in which we show the location of the moment. To implement that we will Use the [react-native-maps](https://github.com/airbnb/react-native-maps) by [airbnb](https://www.airbnb.com/). To get started with `react-native-maps` you must run the following commands to install and link the package.
+In DetailScreen we have a Map View in which we show the location of the moment. To implement that we will Use the [react-native-maps](https://github.com/airbnb/react-native-maps){:target="_blank"} by [airbnb](https://www.airbnb.com/){:target="_blank"}. To get started with `react-native-maps` you must run the following commands to install and link the package.
 * `npm install react-native-maps --save`
 * `react-native link react-native-maps`  
 
 ### _Google Maps API Key_
 To Use Google Maps in your App you must have Google Maps API key, Go get the API key by following these steps:
-* You must use [Google Developer Console](https://console.developers.google.com/) to get the API Key
-* Create a new Project by going to [create project](https://console.developers.google.com/projectcreate)
+* You must use [Google Developer Console](https://console.developers.google.com/){:target="_blank"} to get the API Key
+* Create a new Project by going to [create project](https://console.developers.google.com/projectcreate){:target="_blank"}
 	- Give your project a name
 	- accept the terms 
 	- Click on "Create"
 * Click on Hamburger Icon from top left and select [API Manager](https://console.developers.google.com/apis)
-* Select [Google Maps Android API](https://console.developers.google.com/apis/api/maps_android_backend/overview) from the API List and click "ENABLE".(<span style="color:red">!Important</span>)
+* Select [Google Maps Android API](https://console.developers.google.com/apis/api/maps_android_backend/overview){:target="_blank"} from the API List and click "ENABLE".(<span style="color:red">!Important</span>)
 * In Left Nav. Select "Credentials"
 	- Click "Create credentials"
 	- Select API Key

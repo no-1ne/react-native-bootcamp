@@ -40,7 +40,7 @@ const TravelLogStackNav = StackNavigator({
 		if you wanna see if your Details Screen is working properly, just swap the order of the screens in the Stacknavigator.  
 
 ### _Navigate and Props_
-All is well and good but how do we actually navigate from Main Screen to Detail Screen. React navigation gives a cool Prop named `navigate`, which allows to navigate from one screen to another. Since you've already taken ReactJS bootcamp, you should have a pretty good understanding of [Props](https://facebook.github.io/react-native/docs/props.html)(If you don't? "abort! abort!"). Props are the way different components talk to each other.
+All is well and good but how do we actually navigate from Main Screen to Detail Screen. React navigation gives a cool Prop named `navigate`, which allows to navigate from one screen to another. Since you've already taken ReactJS bootcamp, you should have a pretty good understanding of [Props](https://facebook.github.io/react-native/docs/props.html){:target="_blank"}(If you don't? "abort! abort!"). Props are the way different components talk to each other.
 So in Main Screen we have a list of moments which when clicked should navigate to detail screen. Let's implement that,
 [from react-native-elements documentation] we can pass a prop `onPress` to a ListItem which should be set to a function. So let's refactor our `renderListItems` return a listitems with `onPress` prop. after adding `onPress` prop our `renderListItems` should look like...
 ```
@@ -148,4 +148,4 @@ Now your completed render method should look
   }
 ```  
 
-And that's it for Part IV, we've successfully passed data from one Screen to Another and displayed it in our destination Screen using React navigation navigate. Let's catch fire with [Firebase](https://firebase.google.com/) in [Part V]({{ site.url }}{{site.baseurl}}/part5/firebase.html)...
+And that's it for Part IV, we've successfully passed data from one Screen to Another and displayed it in our destination Screen using React navigation navigate. Let's catch fire with [Firebase](https://firebase.google.com/){:target="_blank"} in [Part V]({{ site.url }}{{site.baseurl}}/part5/firebase.html)...

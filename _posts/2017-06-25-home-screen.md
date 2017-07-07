@@ -8,19 +8,19 @@ In Last part we Learned how to create and run our app on the Emulator. But it is
 Since you know where's the text coming from, let's try changing it. In `index.android.js` in render method change `Welcome to React Native!` to `Hakuna Matata`(or what ever text you please) and save file. Now go back to __Emulator__ and click on **menu -> Reload**. Give yourself a cookie, you made your first changes to your app. But that's not that intimidating, is it? let's go deep and start implementing our Main Screen.
 
 ### _UI Kit_
-The Power of React Native or React as a whole lies in Code reusability, you can simply install and import any npm package and use it. That's exactly what we are going to do now, A UI Kit have components that let us build Elegant UIs without build everything from scratch. For this Bootcamp we'll be using [React Native Elements](https://react-native-training.github.io/react-native-elements/). This UI Kit has All the components we need So let's install it,  
+The Power of React Native or React as a whole lies in Code reusability, you can simply install and import any npm package and use it. That's exactly what we are going to do now, A UI Kit have components that let us build Elegant UIs without build everything from scratch. For this Bootcamp we'll be using [React Native Elements](https://react-native-training.github.io/react-native-elements/){:target="_blank"}. This UI Kit has All the components we need So let's install it,  
 to install `react-native-elements` you must first install and link the peer dependency of `react-native-vector-icons`. run the following commands to install `react-native-elements`.  
 * `npm i react-native-vector-icons --save && react-native link react-native-vector-icons`
 * `npm i react-native-elements --save`  
 
 ## _Main Screen_
 ![ScrollView Main Screen v1]({{ site.url }}{{site.baseurl}}/assets/main-screen.png){: .center-image }  
-If you look at the above screenshot you'll see that our main screen contains a Image with Text, a list and a floating button. let's split it into react-native-elements components and start implementing our Main Screen. If you go to the Documentation of [React Native Elements](https://react-native-training.github.io/react-native-elements/#components-included) you'll see that our Main Screen consists of a [Tile](https://react-native-training.github.io/react-native-elements/API/tile/) Component, a [List](https://react-native-training.github.io/react-native-elements/API/lists/) Component and a [Icon Button](https://react-native-training.github.io/react-native-elements/API/icons/) Component. Let's import the required Components and add them to our Main Screen UI.
+If you look at the above screenshot you'll see that our main screen contains a Image with Text, a list and a floating button. let's split it into react-native-elements components and start implementing our Main Screen. If you go to the Documentation of [React Native Elements](https://react-native-training.github.io/react-native-elements/#components-included){:target="_blank"} you'll see that our Main Screen consists of a [Tile](https://react-native-training.github.io/react-native-elements/API/tile/){:target="_blank"} Component, a [List](https://react-native-training.github.io/react-native-elements/API/lists/){:target="_blank"} Component and a [Icon Button](https://react-native-training.github.io/react-native-elements/API/icons/){:target="_blank"} Component. Let's import the required Components and add them to our Main Screen UI.
  
 ```
 import { Icon, ListItem, Tile } from 'react-native-elements';
 ```
-These are the three Components we need to get started with our Main Screen. In the render method remove the default text and add a [Title](https://react-native-training.github.io/react-native-elements/API/tile/) with a bunch of [ListItems](https://react-native-training.github.io/react-native-elements/API/lists/).
+These are the three Components we need to get started with our Main Screen. In the render method remove the default text and add a [Title](https://react-native-training.github.io/react-native-elements/API/tile/){:target="_blank"} with a bunch of [ListItems](https://react-native-training.github.io/react-native-elements/API/lists/){:target="_blank"}.
 ```
   render() {
     return (
@@ -58,8 +58,14 @@ const styles = StyleSheet.create({
 });
 ```
 now you'll see that all the components nicely fit the screen and looks almost like our screen shot. the only missing piece is the floating button at the bottom right of the screen let's add it.
-refactor our main view to contain a [ScrollView](https://facebook.github.io/react-native/docs/scrollview.html) and another View for the Button. ScrollView unlike [View](https://facebook.github.io/react-native/docs/view.html) make the contents of the View scrollable. ScrollView is part of `react-native` so you'd import ScrollView as follows
-``
+refactor our main view to contain a [ScrollView](https://facebook.github.io/react-native/docs/scrollview.html){:target="_blank"} and another [View](https://facebook.github.io/react-native/docs/view.html){:target="_blank"} for the Button. ScrollView unlike View make the contents of the View scrollable. ScrollView is part of `react-native` so you'd import ScrollView as follows
+<pre>
+import {
+  StyleSheet,
+  View,
+  <span style="color:red">ScrollView,</span>
+} from 'react-native';
+</pre>
 ```
   <View style={styles.container}>
       <ScrollView>
@@ -182,6 +188,6 @@ renderListItems(moment_obj,index) {
 	  );
 }
 ```
-Now it looks exactly like our first screen shot, add few more objects to you `dummy_data` array and then go on and reload the app you'll see that you can scroll down see the remaining listitems.  
+Now it looks exactly like our first screen shot, add few more objects to your `dummy_data` array and then go on and reload the app you'll see that you can scroll down to see the remaining listitems.  
 Congratulations, with This you have successfully implemented our Main Screen with the dummy data.
 Moving on to [Part III]({{ site.url }}{{site.baseurl}}/part3/react-navigation.html)...

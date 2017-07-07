@@ -6,8 +6,8 @@ category: part1
 
 ### _create codenvy workspace_
 Since we have already worked with Codenvy we won't be going into details. Almost all steps of starting workspace are same except one.
-- Go to [codenvy.io](http://codenvy.io/dashboard/) dashboard, login if you haven't already.
-- Click on [Create Workspace](https://codenvy.io/dashboard/#/create-project).
+- Go to [codenvy.io](http://codenvy.io/dashboard/){:target="_blank"} dashboard, login if you haven't already.
+- Click on [Create Workspace](https://codenvy.io/dashboard/#/create-project){:target="_blank"}.
   1. Select Source : New From Blank
   2. Select Workspace : Create new workspace from stack
     - Android (<span style="color:red">!Important</span>)
@@ -20,7 +20,7 @@ Since we have already worked with Codenvy we won't be going into details. Almost
 - Now You have a Codenvy workspace ready with 3 GB memory and Android SDK Installed
 
 ### _Update Android SDK and install Nodejs_
-To be able to use Android SDK, you must first accept the Android SDK License. To be able to accept the license from the CLI you must update each SDK you are using individually. the command to update Android SDK is `android update sdk [--other_options]`. You'd also need [NodeJs](https://nodejs.org/)(Duh!), In your last bootcamp Node was pre install but in this one you have to install it manually. To save you the hassle we have put those two commands into single sh file, now all you have to do is get that sh file and run it. here's the command for that,<center><strong><code>wget https://raw.githubusercontent.com/pavitran/sand_box/master/rn.sh && sh rn.sh</code></strong></center>
+To be able to use Android SDK, you must first accept the Android SDK License. To be able to accept the license from the CLI you must update each SDK you are using individually. the command to update Android SDK is `android update sdk [--other_options]`. You'd also need [NodeJs](https://nodejs.org/){:target="_blank"}(Duh!), In your last bootcamp Node was pre install but in this one you have to install it manually. To save you the hassle we have put those two commands into single sh file, now all you have to do is get that sh file and run it. here's the command for that,<center><strong><code>wget https://raw.githubusercontent.com/pavitran/sand_box/master/rn.sh && sh rn.sh</code></strong></center>
 
 ### _Configure Commands_
 Codenvy let's us define commands so that we can run them with just a click. In your workspace you must currently be in Project Explorer, delete the default project and switch to Commands Explorer by clicking on __Commands__,
@@ -97,14 +97,16 @@ To run the project:
   * from the terminal run `react-native run-android`
   * if the above command ran successfully you should see a "Welcome to React Native" on your emulator(fancy name for mobile you are seeing)
 
-Congratulations, now you have successfully created and run a basic React Native App, That's it for Part I. In the [next part](part2/home-screen.html) we'll start playing with the code, make UI changes and more...
+Congratulations, now you have successfully created and run a basic React Native App, That's it for Part I. In the [next part]({{ site.url }}{{site.baseurl}}/part2/home-screen.html) we'll start playing with the code, make UI changes and more...
 <center>Happy Coding!</center> 
 <center>---***---</center>
 ***
 
 **Note:**
 
+- Every time you restart your workspace, the local node modules gets deleted. So to avoid this, run the following command from your project directory every time you restart the workspace
+  * `npm install`
 - Codenvy shuts down your workspace after every 10 minutes of inactivity, and in this bootcamp it's very important to respect that point. Android emulator take time to load!
 - if you get a gray screen in the novnc link, just right click and select __Emulator__.
 - Emulator must be running to run `react-native run-android` otherwise It'll give a "no android devices running" error.
-- If you get stuck somewhere just checkout the [debugging] Section
+- If you get stuck somewhere just checkout the [debugging]({{ site.url }}{{site.baseurl}}/debugging.html) Section

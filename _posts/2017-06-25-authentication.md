@@ -19,7 +19,7 @@ now these might seem like very few and short steps. but trust me, they aren't!
 
 ### _Create Facebook App_  
 To implement Facebook login we have to create a Facebook App, these are the steps needed to create a Facebook app.
-* Go to [Facebook Developers Console](https://developers.facebook.com/)
+* Go to [Facebook Developers Console](https://developers.facebook.com/){:target="_blank"}
 	- If you aren't logged in Login
 	- Go to my `My Apps` at the top right
 	- Click on `Add A New App`
@@ -27,6 +27,18 @@ To implement Facebook login we have to create a Facebook App, these are the step
 		* Click `Create App ID`
 		* Complete captcha (If prompted)
 		* Hit `Submit`
+* Set up Facebook Login
+	- Now you should be on a Page with Title `Select a product`. if not, From Side Nav Select `+ Add Product`
+	- Hover over `Facebook Login` and click `Set up`
+	- Select Android
+	- Hit Next for the first and second step
+	- Now you'll be prompted to add the package name. Hey bro! what's a package name?😲😵
+		* Package name is a unique identifier that distincts your app from another.
+		* To find you package name go to AndroidManifest.xml(__android/app/src/main/AndroidManifest.xml__). in your root element `manifest`, you should have a attribute with name `package`. The value of that attribute is the package name.
+		* paste the package name in the first input field, in my case the package name is `com.travellog`
+		* In the second input field append your package name with `.MainActivity` and paste it, in my case `com.travellog.MainActivity`
+		* Hit `save`
+		* Select `Use this package name` in the prompt
 * In your dashboard you should see a `APP ID` in the header, take note of it.
 * Make app public
 	- In the Left Navigation Click `App Review`
@@ -125,8 +137,8 @@ Notice that `@string/facebook_app_id` in the above meta tag, we actually have to
 	</pre>  
 * build.gradle
 	- There are two `build.gradle` files that we have to update in order to make it work, one is in the 
-	android project (/android/app/src/build.gradle). add or change the following facebook sdk version inside `dependencies`  
-	`compile 'com.facebook.android:facebook-android-sdk:[4.22.1)'`  
+	android project (/android/app/build.gradle). add or change the following facebook sdk version inside `dependencies`  
+	`compile('com.facebook.android:facebook-android-sdk:4.22.1')`  
 	- In __node_modules->react-native-fbsdk->android->build.gradle__ change or add following inside `dependencies`  
 	`compile('com.facebook.android:facebook-android-sdk:4.22.1')`
 
@@ -196,7 +208,7 @@ Since now we have added auth. let's change our Form Screen and Main Screen to wr
     }
   }
 ```  
-In the following method we check if the user is logged in and than if he is we set the `user_id` state to current user id. otherwise we navigate the use to the Login Screen.  
+In the following method we check if the user is logged in and than if he is, we set the `user_id` state to current user id. otherwise we navigate the use to the Login Screen.  
 * Change the db update inside `addData()` method as follows, don't blame me if you get `can't find variable goBack` error  
 	`this.databaseRef.child(""+this.state.user_id).update(put_object).then(goBack('Main')).catch((error) => alert(error));`  
 
@@ -210,8 +222,8 @@ handleAuthChange(user){
     if (user !== null) {
       this.setState({user_id : user.uid});
       console.log("User logged in");
-      this.itemsRef = firebase.database().ref(user.uid);
-      this.listenForItems(this.itemsRef);
+      this.momentsRef = firebase.database().ref(user.uid);
+      this.listenForItems(this.momentsRef);
     } else {
       this.setState({logged_in : false});
     Alert.alert(

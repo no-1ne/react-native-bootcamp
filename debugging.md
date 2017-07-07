@@ -6,6 +6,10 @@ title: "Debugging"
 
 For most parts of it React Native error aren't descriptive at all, so you have to try and test a few techniques to get it to work. here are a few thing's you can try
 
+### _noVNC error 404_
+- Sometimes we might see a 404 Error when we run the emulator, this usually happened when the `vnc_auto.html` file was changed to `vnc_lite.html`. to fix this, in your `android-emulator:run` change your __Preview URL__ from `http://${server.port.6080}` to `http://${server.port.6080}/vnc_lite.html`
+
+
 ### _Console Log_  
 - We can use console.log for debugging, remember we created a command with the name `adb-logcat:run` try running it after starting the emulator. And you'll see that all the logs from our Emulator are getting logged here. There are three types of logs 
 	- console.log

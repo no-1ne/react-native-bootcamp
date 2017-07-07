@@ -4,11 +4,11 @@ title:  Form Screen
 category: part8
 ---
 
-So we have implemented a Main Screen but we aren't displaying any data of our own to it, are we? So let's add a Form Screen which let's us upload an Image, and add some data related to the moment into the Database. So Let's Get Started
+So we have implemented a Main Screen but we aren't displaying any data of our own to it, are we? So let's add a Form Screen which let's us upload an Image, and add some data related to the moment into the Database. So Let's Get Started...
 
 ### _Firebase Upload_
-In our Last Bootcamp we already learned how to upload images to [Firebase Storage](https://firebase.google.com/docs/storage/). In React Native Firebase file upload won't be that straight forward. To Upload to firebase we must first create blob from file URI, then we can upload the blob to firebase with `firebase.storage().ref().put()`. So How do we create a Blob from a image URI? There is React Native module with the name [react-native-fetch-blob](https://github.com/wkh237/react-native-fetch-blob). this module given a resource URI converts it into a blob. Let's install 
-[react-native-fetch-blob](https://github.com/wkh237/react-native-fetch-blob). run these two commands to install and link react-native-fetch-blob  
+In our Last Bootcamp we already learned how to upload images to [Firebase Storage](https://firebase.google.com/docs/storage/){:target="_blank"}. In React Native, Firebase file upload won't be that straight forward. To Upload to firebase we must first create blob from file URI, then we can upload the blob to firebase with `firebase.storage().ref().put()`. So How do we create a Blob from a image URI? There is React Native module with the name [react-native-fetch-blob](https://github.com/wkh237/react-native-fetch-blob){:target="_blank"}. this module given a resource URI converts it into a blob. Let's install 
+[react-native-fetch-blob](https://github.com/wkh237/react-native-fetch-blob){:target="_blank"}. run these two commands to install and link react-native-fetch-blob  
 * `npm install --save react-native-fetch-blob`
 * `react-native link react-native-fetch-blob`  
  
@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
 		`Form : {screen : FormScreen},`
 * Now when we click on the Camera Icon we are taken to the Form Screen, where we get a image preview, a Input Field and a Button. But wait this button doesn't do anything magical, does it? let's sprinkle some stardust on this button and make it put image to storage and add data to our database.  
 	* #### _React Native Fetch Blob_  
-	As I said before we need [React Native Fetch Blob](https://github.com/wkh237/react-native-fetch-blob) to be able to upload images to firebase. to be able to use it have to do an import and a bunch of initializations. add the following lines after the import statements...  
+	As I said before we need [React Native Fetch Blob](https://github.com/wkh237/react-native-fetch-blob){:target="_blank"} to be able to upload images to firebase. to be able to use it have to do an import and a bunch of initializations. add the following lines after the import statements...  
 	```
 import RNFetchBlob from 'react-native-fetch-blob';
 const Blob = RNFetchBlob.polyfill.Blob;
@@ -84,7 +84,7 @@ window.Blob = Blob;
 	```
 	With this done let's create a method `uploadImage` that takes three arguments a name, a file uri(in our case an image) and an optional mime argument. here's the method..
 	```
-  uploadImage(moment_time,uri, mime = 'application/octet-stream') {
+  uploadImage(moment_time,uri, mime = 'image/jpg') {
     return new Promise((resolve, reject) => {
       //const uploadUri = uri;
       const uploadUri = Platform.OS === 'ios' ? uri.replace('file://', '') : uri;
@@ -123,7 +123,7 @@ componentDidMount(){
             this.setState({ lat : position.coords.latitude, lon : position.coords.longitude });
          },
          (error) => alert(error.message),
-         { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 }
+         { enableHighAccuracy: false, timeout: 20000, maximumAge: 1000 }
       );
   }
 ```
@@ -132,7 +132,7 @@ componentDidMount(){
 	addData(){
 		this.uploadImage(this.props.navigation.state.params.moment_details.moment_time,this.props.navigation.state.params.moment_details.image_path);
 		const moment_details = this.props.navigation.state.params.moment_details;
-		this.databaseRef = firebase.database();
+		this.databaseRef = firebase.database().ref();
 		var put_object = {
     time : moment_details.moment_time,
 		title : this.state.title,
@@ -150,4 +150,68 @@ componentDidMount(){
 	* `this.addData = this.addData.bind(this);`
 	* `onPress={this.addData}`  
 
-If everything went well and you can see your data in firebase, you've just made your app much more cooler. Let's submit on to [Part IX](http://localhost:4000/react-native-bootcamp/part9/authentication.html)...(don't worry almost there) 
+### _Main Screen_  
+if you noticed, we are setting a file path and not a complete URL to our `image` key in our database. So if we try to run our app as it is, we won't see the image of the moment. Let's change that...
+* Your current `componentDidMount` of `MainScreen` should look like  
+```
+  componentDidMount() {
+      try{
+        this.momentsRef.on('value', (snap) => {
+          this.setState({
+            moments : Object.keys(snap.val()).map((orderItemKey,index) => {return snap.val()[orderItemKey]})
+          });
+          console.log("apples_after 2"+JSON.stringify(this.state.items) + "\n");
+        });
+      }catch(e){
+        console.log(e);
+      }
+  }
+```  
+refactor it and move the code to a new method named `listenForItems` and call it from `componentDidMount`. now your code should look like...
+```
+  componentDidMount() {
+    this.listenForItems(this.momentsRef);
+  }
+  listenForItems(momentsRef) {
+    try{
+      momentsRef.on('value', (snap) => {
+        if (snap.val() != null) {
+          this.setState({moments : []});
+          var temp_moments = Object.keys(snap.val()).map((orderItemKey,index) => {
+              let storage = firebase.storage();
+              let imageRef = storage.ref( "" + this.state.user_id).child(""+snap.val()[orderItemKey].image);/* TODO */
+              let imageURL = imageRef.getDownloadURL().then((imgURL) => {
+                  var temp_obj = snap.val()[orderItemKey];
+                  temp_obj["image"] = imgURL;
+                  var temp_mom = this.state.moments;
+                  temp_mom[index] = temp_obj;
+                  this.setState({ moments: temp_mom });
+                }).catch((error)=>{console.log(error)});
+              return snap.val()[orderItemKey]
+            });
+          this.setState({moments : temp_mom});
+        }
+      });
+    }catch(e){
+      console.log(e);
+    }
+  }
+```  
+So what's this code doing? In `ListenForItems` we try to get the value from `momentsRef` with `momentsRef.on('value'`. when we get the snapshot from firebase we see if it's not null with `snap.val() != null`. If it's not null we empty out moments array with `this.setState({moments : []});`. Then we assign to `temp_moments` an array of moments returned by `Object.keys(snap.val()).map`.  
+Hey dude, that all fine but what these vague `imageRef`,`imageURL` etc. doing in code?  
+As I said we are adding the path to the image to our database and not the actual image, so we have to get image URL with `getDownloadURL()` from firebase.  
+```
+              let storage = firebase.storage();
+              let imageRef = storage.ref().child(""+snap.val()[orderItemKey].image);
+              let imageURL = imageRef.getDownloadURL().then((imgURL) => {
+                  var temp_obj = snap.val()[orderItemKey];
+                  temp_obj["image"] = imgURL;
+                  var temp_mom = this.state.moments;
+                  temp_mom[index] = temp_obj;
+                  this.setState({ moments: temp_mom });
+                }).catch((error)=>{console.log(error)});
+```  
+So what these three lines of code does is, defines a storage variable and assigns it to `firebase.storage()`. and then get the image reference and assign it to `storage.ref().child(""+snap.val()[orderItemKey].image)`, which would give us the image reference of current moment inside `map` function. we then get the image URL from the reference with `imageRef.getDownloadURL()`, and get the imageURL in the callback function of `.then`. We now have a URL for our image, and all we have to do is update our current object in moments state. We assign the current object to a temporary variable called `temp_obj` and update it's image element to the image URL from firebase. Now we get the moments state and assign it to `temp_mom` and update the value at index `index` to `temp_obj`. Now we set the moments state back `this.setState({ moments: temp_mom });` with updated image value.
+
+
+If everything went well and you can see your data in firebase and on Main Screen, you've just made your app much more cooler. Let's submit on to [Part IX]({{ site.url }}{{site.baseurl}}/part9/authentication.html)...(don't worry almost there) 

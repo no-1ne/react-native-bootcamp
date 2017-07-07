@@ -5,7 +5,7 @@ category: part7
 ---
 
 ### _Intro_
-The Main functionality of this App is being able to Capture a moment, adding a Title and saving it to Firebase with the Geo Location. And we haven't accomplished any of these yet. So Let's Implement A Camera Screen that take a Picture. There is a [React Native Camera](https://github.com/lwansbrough/react-native-camera) module, which would do the job for us. To Get started install and link the module with following commands..
+The Main functionality of this App is being able to Capture a moment, adding a Title and saving it to Firebase with the Geo Location. And we haven't accomplished any of these yet. So Let's Implement A Camera Screen that take a Picture. There is a [React Native Camera](https://github.com/lwansbrough/react-native-camera){:target="_blank"} module, which would do the job for us. To Get started install and link the module with following commands..
 * `npm i react-native-camera@0.6 --save`
 * `react-native link react-native-camera`  
 
@@ -16,7 +16,7 @@ Remember We edited AndroidManifest.xml to add a Google API. In this Part also we
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> 
 ```  
 Hey! I understand we need read and write for image storage, what is `ACCESS_FINE_LOCATION` permission?  
-You got me again smarty pants😋 , that is actually to get the location of the user in the next part, I added it here itself so that you don't have to edit this file again.🙂 
+You got me again smarty pants😋 , that is actually to get the location of the user in the next part. I added it here itself so that you don't have to edit this file again.🙂 
 also add `android:largeHeap="true"` just after `android:allowBackup="true"`
 
 Now 
@@ -48,7 +48,7 @@ export default class CameraScreen extends Component {
   }
 }
 	```  
-	Let's see what we are doing here, we have added a View whose style is set to style.container(will define it in next step). We have a Camera with aspect ratio set to FIll and orientation to Landscape. We've added an Icon which on press calls a method named takePicture(not defined yet). Where are we getting all this from, from the [documentation](https://github.com/lwansbrough/react-native-camera#usage)  
+	Let's see what we are doing here, we have added a View whose style is set to style.container(will define it in next step). We have a Camera with aspect ratio set to FIll and orientation to Landscape. We've added an Icon which on press calls a method named takePicture(not defined yet). Where are we getting all this from, from the [documentation](https://github.com/lwansbrough/react-native-camera#usage){:target="_blank"}  
 
 * Defining the styles constant  
 	```

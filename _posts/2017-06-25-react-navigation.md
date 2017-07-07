@@ -5,18 +5,18 @@ category: part3
 ---
 
 ### _Intro_
-We just created a Single Main Screen with ListItems from our dummy_data, but most of the time when you are creating apps you want to have more than one Screen. [React Navigation](https://github.com/react-community/react-navigation) Let's us do that, just think of it as [React Router](https://github.com/ReactTraining/react-router) for React Native. Just run the following command to install React Navigation,
+We just created a Single Main Screen with ListItems from our dummy_data, but most of the time when you are creating apps you want to have more than one Screen. [React Navigation](https://github.com/react-community/react-navigation){:target="_blank"} Let's us do that, just think of it as [React Router](https://github.com/ReactTraining/react-router){:target="_blank"} for React Native. Just run the following command to install React Navigation,
 <center><strong><code>npm install --save react-navigation</code></strong></center>
 
 
 
 ### _Types_
 React Navigation gives three Navigator Components which you can again mix and match.
-* [StackNavigator](https://reactnavigation.org/docs/navigators/stack#StackNavigator)  
+* [StackNavigator](https://reactnavigation.org/docs/navigators/stack#StackNavigator){:target="_blank"}  
 	Let's us change Screens by stacking one top of another
-* [TabNavigator](https://reactnavigation.org/docs/navigators/tab#TabNavigator)  
+* [TabNavigator](https://reactnavigation.org/docs/navigators/tab#TabNavigator){:target="_blank"}  
 	Let's us change Screens with a tabs at the bottom
-* [DrawerNavigator](https://reactnavigation.org/docs/navigators/drawer#DrawerNavigator)  
+* [DrawerNavigator](https://reactnavigation.org/docs/navigators/drawer#DrawerNavigator){:target="_blank"}  
 	Let's us set up a screen with a drawer navigation
 
 ### _Stacknavigator_
