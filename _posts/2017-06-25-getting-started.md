@@ -34,13 +34,7 @@ Add another command by clicking "+" icon beside RUN
   * double click on `custom`, this will give you a new command
   * rename it to `packager-server:run`
   * add command `cd /projects/TravelLog/ && npm start`
-  * save (don't run yet)  
-
-Add another command by clicking "+" icon beside RUN  
-  * double click on `custom`, this will give you a new command
-  * rename it to `adb-logcat:run`
-  * add command `adb logcat`
-  * save (RUN it after the emulator is running) 
+  * save (don't run yet)   
 
 ### _Android Emulator_
 In the Last Section when you save and run it gives you a link, click on it and it will bring you to a blank gray screen. Right click on it and select __Emulator__. give it some time and *Voila!* you have your very own mobile device to play with and install apps on, BTW it's called an __Emulator__. Now a word of caution, this little thing is very delicate and you must handle it with care 
@@ -49,6 +43,12 @@ In the Last Section when you save and run it gives you a link, click on it and i
   * don't press unnecessary button
   * don't let it shut down, it takes time to reboot
   * be gentle!  
+
+After you run your emulator you wanna see the output on a screen, To do that... 
+  * open up a new terminal by click on __Run__ in your top menu and select __Terminal__, alternatively press `Alt+F12`
+  * This will give a new terminal
+  * run `adb logcat` from your new terminal
+  * Now you should see Logs from your emulator appear on your terminal
 
 ### _Install React Native CLI_
 For those curious guys out there CLI stands for Command Line Interface(If you didn't know that already). React Native CLI is a npm package that is required and must be installed globally to create a React native App. To install react-native-cli run <center><strong><code>sudo npm install -g react-native-cli</code></strong></center> from anywhere, this will install react-native-cli globally and you are ready to create your first React native Project.

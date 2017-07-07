@@ -43,12 +43,15 @@ here are some common error that you might encounter and how to fix them,
 	This is a common error and usually means that you forgot to import or initialize a function, method or a variable. just go to the line and verify  
 * <span style="color:red">You have not accepted the license agreements of the following SDK components:  <span>  
 	
-	This another creepy worm that we were prepared for but still slips out of our shoe, so here how to fix this issue.  
+	This another creepy worm that we were prepared for but still slips out of our shoe, so here's how to fix this issue.  
 	* copy this line : <code class="highlighter-rouge">android update sdk --no-ui --all --filter "<span style='color:orange'>replace_with_required_sdk_component</span>"</code>
 	* paste it in the codenvy workspace
 	* change the `replace_with_required_sdk_component` to your component that requires license acceptance.
 	* press enter and then enter `y` when it prompts to accepts the license.  
-	You are good to go!
+	You are good to go!  
+* <span style="color:red">You cannot render into anything but a top root"  <span>
 
+### _Workspace stops while build and prompts for restart again and again_  
+This issue is specific to [codenvy](https://codenvy.io/dashboard/) and will start showing up as your project gets big, we encountered this error on [part9] 
 
-If nothing of the above May God save you😜, Just kidding You can ask any of the mentors to help you debug anytime. Just make sure you first follow the above steps to save time.
+If nothing of the above work May God save you😜, Just kidding You can ask any of the mentors to help you debug anytime. Just make sure you first follow the above steps to save time.
