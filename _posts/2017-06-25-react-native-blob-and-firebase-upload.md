@@ -114,7 +114,7 @@ window.Blob = Blob;
     });
   }
 	```  
-	So what this method does is given a file URI and a name it read the file and return a Blob created from it, then the blob is out to the firebase with firebase.storage().ref().put() function. then it closes the blob and returns the downloadURl from firebase.
+	So what this method does is given a file URI and a name it read the file and return a Blob created from it, then the blob is out to the firebase with firebase.storage().ref().put() function. then it closes the blob and returns the downloadURl from firebase. THe above method also uses `Platform` module so you have to import it from `react-native`
 * Also we need to get the Geo Location for the maps, in react-native getting the location is straight forward. all we have to do is use `navigator.geolocation` same as we do in the web., let's get the current location of the user in the `componentDidMount()` of `FormScreen.js`. So now should have a `componentDidMount()` that looks something like this..
 ```
 componentDidMount(){
@@ -179,7 +179,7 @@ refactor it and move the code to a new method named `listenForItems` and call it
           this.setState({moments : []});
           var temp_moments = Object.keys(snap.val()).map((orderItemKey,index) => {
               let storage = firebase.storage();
-              let imageRef = storage.ref( "" + this.state.user_id).child(""+snap.val()[orderItemKey].image);/* TODO */
+              let imageRef = storage.ref().child(""+snap.val()[orderItemKey].image);
               let imageURL = imageRef.getDownloadURL().then((imgURL) => {
                   var temp_obj = snap.val()[orderItemKey];
                   temp_obj["image"] = imgURL;
@@ -189,7 +189,7 @@ refactor it and move the code to a new method named `listenForItems` and call it
                 }).catch((error)=>{console.log(error)});
               return snap.val()[orderItemKey]
             });
-          this.setState({moments : temp_mom});
+          this.setState({moments : temp_moments});
         }
       });
     }catch(e){

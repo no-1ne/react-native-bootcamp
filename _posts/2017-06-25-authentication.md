@@ -58,7 +58,7 @@ __note : don't ask me why we are implementing these steps, because that's how th
 	2. MainActivity.java (/android/app/src/main/java/MainActivity.java) 
 	3. AndroidManifest.xml (/android/app/src/main/AndroidManifest.xml)
 	4. strings.xml (/android/app/src/main/res/values/strings.xml)  
-	5. build.gradle (/android/app/src/build.gradle && node_modules/react-native-fbsdk/android/build.gradle)
+	5. build.gradle (/android/app/build.gradle && node_modules/react-native-fbsdk/android/build.gradle)
 * MainApplication.java
 	- add following lines at the top of the file 
 	```
