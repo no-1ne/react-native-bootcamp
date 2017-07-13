@@ -28,7 +28,7 @@ sections: [
     ['part7', 'React Native Camera'],
     ['part8', 'React Native Blob and Firebase Upload'],
     ['part9', 'Authentication'],
-    ['part10', 'Wrap Up'],
+    ['part10', 'Wrap Up']
 ]
 
 # Keep as an empty string if served up at the root. If served up at a specific
