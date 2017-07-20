@@ -177,7 +177,7 @@ const TravelLogStackNav = StackNavigator({
     ```
     <View style={styles.container}>
         <View style={styles.colorsContainer}>
-          <Text>Your Detail Screen</Text>
+          <Text>Your Map Location Here</Text>
         </View>
         <ScrollView
           style={styles.scrollview}
@@ -234,7 +234,7 @@ constructor(props){
   }
 ```  
 Now if you go back to emulator and reload(**menu->reload**), you'd see the Main Screen and when you click on one of the ListItems it would take you to the Details Screen. But it isn't doing anything fancy, is it? now let's send the moment data from Main Screen to Detail Screen and show it the detail Screen.  
-React Navigation `navigate` action takes another argument that again can be retrieved from the destination screen. so you can changes the `onPress` prop to.
+React Navigation `navigate` action takes another argument that again can be retrieved from the destination screen. so you can change the `onPress` prop to.
 ```
 onPress={() =>{
             this.props.navigation.navigate('Detail', { details : moment_obj,details_list : this.state.moments,moment_key : index});
@@ -280,11 +280,14 @@ get carousel () {
               firstItem={this.props.navigation.state.params.moment_key}
               autoplayDelay={5000}
               autoplayInterval={10000}
-              containerCustomStyle={{marginBottom: 30}}
+              containerCustomStyle={{ "{{marginBottom: 30" }}}}
               showsHorizontalScrollIndicator={false}
               snapOnAndroid={true}
               removeClippedSubviews={false}
-              onSnapToItem={(index) => {console.log(this.props.navigation.state.params.details_list[index].location)}}>
+              onSnapToItem={(index) => {
+              var location = this.props.navigation.state.params.details_list[index].location;
+              console.log(JSON.stringify(location));
+              }>
                   <MomentCard
                     key={0}
                     even={true}
@@ -331,7 +334,7 @@ get carousel () {
 * If Everything went well you should see a beautiful carousel will all of our moments.  
 
 ### Map View  
-As Said before we'll not be implementing Map here, you can either leave the map section as it is or set it to a Text component that show the Lat. and Lon. of the moment.  
+As Said before we'll not be implementing Map here, you can either leave the map section as it is or set it to a Text component that shows the Lat. and Lon. of the moment.  
 (note : I prefer my Lat. Lon. to change on each slide change😉)
 
-And that's it for Part IV, we've successfully passed data from one Screen to Another and displayed it in our destination Screen using React navigation navigate. Let's catch fire with [Firebase](https://firebase.google.com/){:target="_blank"} in [Part V]({{ site.url }}{{site.baseurl}}/part5/firebase.html)...
+And that's it for Part IV, we've successfully passed data from one Screen to Another and displayed it in our destination Screen using React navigation navigate. Let's catch some fire with [Firebase](https://firebase.google.com/){:target="_blank"} in [Part V]({{ site.url }}{{site.baseurl}}/part5/firebase.html)...

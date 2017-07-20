@@ -4,8 +4,8 @@ title:  Main Screen
 category: part2
 ---
 
-In Last part we Learned how to create and run our app on the Emulator. But it isn't doing anything fancy, is it? Let's Change that, open `index.android.js` and you'll see that everything is just like ReactJS Project. There's a render method which returns a View Component with a few Text Components, If you go back to your emulator you'll notice that the text on Emulator comes from this file.  
-Since you know where's the text coming from, let's try changing it. In `index.android.js` in render method change `Welcome to React Native!` to `Hakuna Matata`(or what ever text you please) and save file. Now go back to __Emulator__ and click on **menu -> Reload**. Give yourself a cookie, you made your first changes to your app. But that's not that intimidating, is it? let's go deep and start implementing our Main Screen.
+In Last part we Learned how to create and run our app on the Emulator. But it isn't doing anything fancy, is it? Let's Change that, open `index.android.js` and you'll see that everything is just like ReactJS Project. There's a render method which returns some JSX, If you go back to your emulator you'll notice that the text on Emulator comes from this file.  
+Since you know where's the text coming from, let's try changing it. In `index.android.js` in render method change `Welcome to React Native!` to `Hakuna Matata`(or what ever text you please) and save file. Now go back to __Emulator__ and click on **menu -> Reload**. Give yourself a cookie🍪, you made your first changes to your app. But that's not that intimidating, is it? let's go deep and start implementing our Main Screen.
 
 ### _UI Kit_
 The Power of React Native or React as a whole lies in Code reusability, you can simply install and import any npm package and use it. That's exactly what we are going to do now, A UI Kit have components that let us build Elegant UIs without build everything from scratch. For this Bootcamp we'll be using [React Native Elements](https://react-native-training.github.io/react-native-elements/){:target="_blank"}. This UI Kit has All the components we need So let's install it,  
